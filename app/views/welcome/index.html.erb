@@ -1,0 +1,19 @@
+<div class="signup">
+<h1>Sign Up</h1>
+<%= form_for @user do |f| %>
+  <%# f.label(:email) %>
+  <%= f.text_field :email, placeholder: 'Your Email' %><br><br>
+  <%# f.label(:name) %>
+  <%= f.text_field :name, placeholder: 'First Name' %><br><br>
+  <%# f.label(:password) %>
+  <%= f.password_field :password, placeholder: 'New Password' %><br><br>
+  <%# f.label(:password_confirmation) %>
+  <%= f.password_field :password_confirmation, placeholder: 'Re-enter Password' %><br><br>
+  <%= f.submit 'Sign Up', :class => 'signupbutton'%>
+<% end %>
+</div>
+<div class="welcome">
+<br>
+Welcome to lawyerD<br><br>
+<p>Where you can manage your</p><p>assignments</p><p>partners</p><p>due dates</p><p>etc.</p>
+</div>

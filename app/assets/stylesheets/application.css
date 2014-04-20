@@ -11,3 +11,60 @@
  *= require_self
  *= require_tree .
  */
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+body {
+  margin: 0 auto;
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+}
+
+header {
+  background-color: darkblue;
+  height: 80px;
+}
+header a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Lobster', cursive;
+  font-size: 56px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 860px;
+  position: relative;
+}
+
+.login {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding-top: 20px;
+  padding-right: 10px;
+}
+
+.welcome{
+  width: 400px;
+  float: left;
+  text-align: center;
+}
+
+.signup {
+  float: right;
+  width: 320px;
+}
+
+.signup input {
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.signup .signupbutton {
+  background: forestgreen;
+  color: white;
+  border-radius: 0px;
+}
+
+.flash {
+  background-color: #66CC66;
+}
