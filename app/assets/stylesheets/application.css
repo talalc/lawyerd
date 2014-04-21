@@ -22,11 +22,16 @@ header {
   background-color: darkblue;
   height: 80px;
 }
-header a{
+header #logo a{
   color: white;
   text-decoration: none;
   font-family: 'Lobster', cursive;
   font-size: 56px;
+}
+
+header a{
+  color: white;
+  text-decoration: none;
 }
 
 .container {
