@@ -1,3 +1,10 @@
 <p>Hi <%= current_user.name %></p>
-<p></p>
-<p></p>
+Your Partners<br>
+<% @partners.each do |p| %>
+  <%= p.name %><br>
+<% end %>
+<br><br>
+Your Clients<br>
+<% @clients.each do |c| %>
+  <%= c.name %><br>
+<% end %>
