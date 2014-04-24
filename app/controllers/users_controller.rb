@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id) #not used
     @partners = current_user.partners
+    @partner = Partner.new
     @clients = current_user.clients
+    @client = Client.new
   end
 
   private

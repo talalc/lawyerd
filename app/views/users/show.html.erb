@@ -2,9 +2,11 @@
 Your Partners<br>
 <% @partners.each do |p| %>
   <%= p.name %><br>
-<% end %>
+<% end %><br>
+Add Partner <%= render 'partners/form' %>
 <br><br>
 Your Clients<br>
 <% @clients.each do |c| %>
   <%= c.name %><br>
-<% end %>
+<% end %><br>
+Add Client <%= render 'clients/form' %>
