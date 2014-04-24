@@ -1,7 +1,6 @@
 class AssignmentTypesController < ApplicationController
 
   def create
-    binding.pry
     @assignment_type = AssignmentType.new(assignment_type_params)
     @assignment_type.user = current_user
     if @assignment_type.save
