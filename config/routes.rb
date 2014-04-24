@@ -16,9 +16,13 @@ LawyerdApp::Application.routes.draw do
   resources :users
   resources :partners
   resources :clients
+  resources :assignment_types
+  resources :assignments
   get  "/session/new"  => "session#new"
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"
+
+  get '/users/:id/:sort_by' => 'users#show', as: 'sort_by'
   # Example resource route with options:
   #   resources :products do
   #     member do

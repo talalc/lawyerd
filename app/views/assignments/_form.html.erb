@@ -1,0 +1,9 @@
+<%= form_for(@assignment) do |f| %>
+  <%= f.label(:client) %>
+  <%= f.collection_select(:client_id, @clients, :id, :name) %>
+  <%= f.label(:assignment_type) %>
+  <%= f.collection_select(:assignment_type_id, @types, :id, :name) %>
+  <%= f.date_field :assigned_date, :placeholder => 'mm/dd/yyyy' %>
+  <%= f.date_field :due_date, :placeholder => 'mm/dd/yyyy' %>
+  <%= f.submit %>
+<% end %>

@@ -10,7 +10,14 @@
 
   <header>
     <div class="container">
-      <span id="logo"><%= link_to 'lawyerD', root_path %></span><%= render 'layouts/login' %>
+      <span id="logo">
+        <% if logged_in? %>
+          <%= link_to 'lawyerD', user_path(current_user) %>
+        <% else %>
+          <%= link_to 'lawyerD', root_path %>
+        <% end %>
+
+      </span><%= render 'layouts/login' %>
     </div>
   </header>
 

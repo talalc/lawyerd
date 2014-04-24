@@ -34,6 +34,10 @@ header a{
   text-decoration: none;
 }
 
+h4 {
+  margin: 0px;
+}
+
 .container {
   margin: 0 auto;
   max-width: 860px;
@@ -72,4 +76,16 @@ header a{
 
 .flash {
   background-color: #66CC66;
+}
+
+.green {
+  background-color: #98FB98;
+}
+
+.yellow {
+  background-color: #FFFF66;
+}
+
+.assignmentsTable {
+  text-align: center;
 }

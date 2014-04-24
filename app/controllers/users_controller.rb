@@ -18,10 +18,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id) #not used
+    sort_by = params[:sort_by] || 'id'
+    @assignments = current_user.assignments.order(sort_by)
     @partners = current_user.partners
     @partner = Partner.new
     @clients = current_user.clients
     @client = Client.new
+    @types = current_user.assignment_types
+    @type = AssignmentType.new
+    @assignment = Assignment.new
   end
 
   private

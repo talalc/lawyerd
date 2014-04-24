@@ -1,5 +1,4 @@
 <%= form_for(@partner) do |f| %>
-  <%= f.label(:name) %>
-  <%= f.text_field(:name) %>
+  <%= f.text_field :name, :placeholder => 'Enter Partner Name' %><br>
   <%= f.submit %>
 <% end %>

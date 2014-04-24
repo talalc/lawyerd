@@ -1,12 +1,52 @@
+<div align="center">
 <p>Hi <%= current_user.name %></p>
-Your Partners<br>
+<p>Today is <%= Time.now.to_date.to_formatted_s(:long) %></p>
+<h4>Your Assignments</h4><br>
+<table width="800px" class="assignmentsTable">
+  <thead>
+    <th><strong><%= link_to 'Client', "/users/#{current_user.id}/client_id" %></strong></th>
+    <th><strong><%= link_to 'Type', "/users/#{current_user.id}/assignment_type_id" %></strong></th>
+    <th><strong><%= link_to 'Partner', "/users/#{current_user.id}/partner_id" %></strong></th>
+    <th><strong><%= link_to 'Assigned Date', "/users/#{current_user.id}/assigned_date" %></strong></th>
+    <th><strong><%= link_to 'Due Date', "/users/#{current_user.id}/due_date" %></strong></th>
+    <th><strong><%= link_to 'Days Left', "/users/#{current_user.id}/due_date" %></strong></th>
+  </thead>
+  <tbody>
+    <% @assignments.each do |a| %>
+      <% if (a.due_date - Time.now.to_date).to_i < 7 %>
+      <tr class="green" >
+      <% elsif (a.due_date - Time.now.to_date).to_i > 7 && (a.due_date - Time.now.to_date).to_i < 15 %>
+      <tr class="yellow" >
+      <% else %>
+      <tr>
+      <% end %>
+        <td><%= a.client.name %></td>
+        <td><%= a.assignment_type.name %></td>
+        <td><%= a.partner.name %></td>
+        <td><%= a.assigned_date.to_formatted_s(:long) %></td>
+        <td><%= a.due_date.to_formatted_s(:long) %></td>
+        <td><%= (a.due_date - Time.now.to_date).to_i %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
+<%= render 'assignments/form' %>
+<br><br>
+<h4>Your Partners</h4><br>
 <% @partners.each do |p| %>
   <%= p.name %><br>
 <% end %><br>
-Add Partner <%= render 'partners/form' %>
+<%= render 'partners/form' %>
 <br><br>
-Your Clients<br>
+<h4>Your Clients</h4><br>
 <% @clients.each do |c| %>
   <%= c.name %><br>
 <% end %><br>
-Add Client <%= render 'clients/form' %>
+<%= render 'clients/form' %>
+<br><br>
+<h4>Your Assignment Types</h4><br>
+<% @types.each do |t| %>
+  <%= t.name %><br>
+<% end %><br>
+<%= render 'assignment_types/form' %>
+</div>
