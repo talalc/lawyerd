@@ -22,6 +22,11 @@ header {
   background-color: darkblue;
   height: 80px;
 }
+
+body header a:visited {
+  color: white;
+}
+
 header #logo a{
   color: white;
   text-decoration: none;
@@ -29,7 +34,7 @@ header #logo a{
   font-size: 56px;
 }
 
-header a{
+body header a{
   color: white;
   text-decoration: none;
 }
