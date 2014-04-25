@@ -10,6 +10,8 @@
     <th><strong><%= link_to 'Assigned Date', "/users/#{current_user.id}/assigned_date" %></strong></th>
     <th><strong><%= link_to 'Due Date', "/users/#{current_user.id}/due_date" %></strong></th>
     <th><strong><%= link_to 'Days Left', "/users/#{current_user.id}/due_date" %></strong></th>
+    <th><strong> </strong></th>
+    <th><strong> </strong></th>
   </thead>
   <tbody>
     <% @assignments.each do |a| %>
@@ -26,6 +28,8 @@
         <td><%= a.assigned_date.to_formatted_s(:long) %></td>
         <td><%= a.due_date.to_formatted_s(:long) %></td>
         <td><%= (a.due_date - Time.now.to_date).to_i %></td>
+        <td><%= link_to 'Edit', edit_assignment_path(a) %></td>
+        <td><%= link_to "Delete", assignment_path(a), :method => :delete, :confirm => "Are you sure?" %></td>
       </tr>
     <% end %>
   </tbody>
