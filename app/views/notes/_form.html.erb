@@ -1,0 +1,5 @@
+<%= form_for(@note) do |f| %>
+  <%= f.hidden_field :assignment_id, :value => @assignment.id %>
+  <%= f.text_field :content, :placeholder => 'Enter Note' %><br>
+  <%= f.submit %>
+<% end %>

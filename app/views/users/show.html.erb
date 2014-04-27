@@ -10,11 +10,13 @@
     <th><strong><%= link_to 'Assigned Date', "/users/#{current_user.id}/assigned_date" %></strong></th>
     <th><strong><%= link_to 'Due Date', "/users/#{current_user.id}/due_date" %></strong></th>
     <th><strong><%= link_to 'Days Left', "/users/#{current_user.id}/due_date" %></strong></th>
+    <th><strong>Notes</strong></th>
     <th><strong> </strong></th>
     <th><strong> </strong></th>
   </thead>
   <tbody>
     <% @assignments.each do |a| %>
+      <%# binding.pry %>
       <% if (a.due_date - Time.now.to_date).to_i < 7 %>
       <tr class="green" >
       <% elsif (a.due_date - Time.now.to_date).to_i > 7 && (a.due_date - Time.now.to_date).to_i < 15 %>
@@ -28,8 +30,9 @@
         <td><%= a.assigned_date.to_formatted_s(:long) %></td>
         <td><%= a.due_date.to_formatted_s(:long) %></td>
         <td><%= (a.due_date - Time.now.to_date).to_i %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(a) %></td>
-        <td><%= link_to "Delete", assignment_path(a), :method => :delete, :confirm => "Are you sure?" %></td>
+        <td><%= link_to a.notes.length, assignment_path(a) %></td>
+        <td><span style="font-size: small;"><%= link_to 'Edit', edit_assignment_path(a) %></span></td>
+        <td><span style="font-size: small;"><%= link_to "Delete", assignment_path(a), :method => :delete, :confirm => "Are you sure?" %></span></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,19 +41,19 @@
 <br><br>
 <h4>Your Partners</h4><br>
 <% @partners.each do |p| %>
-  <%= p.name %><br>
+  <%= p.name %> - <%= p.clients.size %> clients - <%= p.assignments.length %> assignments<br>
 <% end %><br>
 <%= render 'partners/form' %>
 <br><br>
 <h4>Your Clients</h4><br>
 <% @clients.each do |c| %>
-  <%= c.name %><br>
+  <%= c.name %> - <%= c.assignments.length %> assignments<br>
 <% end %><br>
 <%= render 'clients/form' %>
 <br><br>
 <h4>Your Assignment Types</h4><br>
 <% @types.each do |t| %>
-  <%= t.name %><br>
+  <%= t.name %> - <%= t.assignments.length %> assignments<br>
 <% end %><br>
 <%= render 'assignment_types/form' %>
 </div>

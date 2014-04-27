@@ -1,6 +1,6 @@
 <%= form_for(@client) do |f| %>
-  <%= f.text_field :name, :placeholder => 'Enter Client Name' %>
   <%= f.label(:partner) %>
-  <%= f.collection_select(:partner_id, @partners, :id, :name) %><br>
+  <%= f.collection_select(:partner_id, @partners, :id, :name) %>
+  <%= f.text_field :name, :placeholder => 'Enter Client Name' %>
   <%= f.submit %>
 <% end %>

@@ -5,4 +5,6 @@ class Assignment < ActiveRecord::Base
 
   belongs_to :assignment_type
 
+  has_many :notes
+
 end

@@ -18,6 +18,7 @@ LawyerdApp::Application.routes.draw do
   resources :clients
   resources :assignment_types
   resources :assignments
+  resources :notes
   get  "/session/new"  => "session#new"
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"

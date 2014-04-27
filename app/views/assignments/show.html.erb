@@ -1,0 +1,11 @@
+<div align="center">
+<br>
+<br>
+<% @assignment.notes.each do |note| %>
+  <%= note.content %><br><span style="font-size: x-small;"><%= link_to 'delete', note_path(note), :method => :delete, :confirm => "Are you sure?" %></span><br><br>
+<% end %>
+
+
+<%= render 'notes/form' %>
+
+</div>

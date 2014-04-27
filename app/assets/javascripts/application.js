@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//  require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $( "#assignment_assigned_date" ).datepicker({ dateFormat: "yy-mm-dd" });
+  $( "#assignment_due_date" ).datepicker({ dateFormat: "yy-mm-dd" });
+});

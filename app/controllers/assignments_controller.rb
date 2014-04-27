@@ -41,6 +41,11 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def show
+    @assignment = Assignment.find(params[:id])
+    @note = Note.new
+  end
+
   private
 
   def assignment_params
